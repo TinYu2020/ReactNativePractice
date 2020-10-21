@@ -52,7 +52,7 @@ function AccountScreen(props) {
                 />
             </View>
             <ListItem 
-                title="Log Out"
+                title="LOG OUT"
                 IconComponent={
                     <Icon name="logout" backgroundColor="#ffe66d"/>
                 }
