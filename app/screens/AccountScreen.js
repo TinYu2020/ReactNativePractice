@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import ListItem from "../components/lists/ListItem";
 import Screen from "../components/Screen";
-import colors from "../config/color";
+import colors from "../config/colors";
 import Icon from "../components/Icon";
 import ListItemSeparator from "../components/lists/ListItemSeparator";
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // Screens
 import AccountScreen from "./app/screens/AccountScreen";
@@ -12,5 +12,5 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 export default function App() {
-  return <MessagesScreen />;
+  return <AccountScreen />;
 }

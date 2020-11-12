@@ -19,9 +19,6 @@
     "ios": {
       "supportsTablet": true
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
     "description": "Selling the stuff you don't need anymore!"
   }
 }
