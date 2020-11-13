@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
+import { Button, Image } from "react-native";
 
 // Screens
 import AccountScreen from "./app/screens/AccountScreen";
@@ -10,7 +13,19 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import Register from "./app/screens/Register";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+import Screen from "./app/components/Screen";
+
+import ImageInput from "./app/components/ImageInput";
 
 export default function App() {
-  return <AccountScreen />;
+  const [imageUri, setImageUri] = useState();
+
+  return (
+    <Screen>
+      <ImageInput
+        imageUri={imageUri}
+        onChangeImage={(uri) => setImageUri(uri)}
+      />
+    </Screen>
+  );
 }
