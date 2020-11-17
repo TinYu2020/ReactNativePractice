@@ -14,11 +14,12 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import NavigationTheme from "./app/navigation/NavigationTheme";
+import AppNavigator from "./app/navigation/AppNavigator";
 
 export default function App() {
   return (
     <NavigationContainer theme={NavigationTheme}>
-      <AuthNavigator />
+      <AppNavigator />
     </NavigationContainer>
   );
 }
