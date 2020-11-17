@@ -2,10 +2,10 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
-import { Form, FormField, FormPicker, SubmitButton } from "../components/forms";
 import CategoryPickerItem from "../components/CategoryPickerItem";
-import Screen from "../components/Screen";
+import { Form, FormField, FormPicker, SubmitButton } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import Screen from "../components/Screen";
 import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
