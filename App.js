@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 // import { AsyncStorageStatic } from "react-native";
@@ -11,8 +11,10 @@ import NavigationTheme from "./app/navigation/NavigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 import { Text } from "react-native";
 import OfflineNotice from "./app/components/OfflineNotice";
+import AuthContext from "./app/auth/context";
 
 export default function App() {
+  const [user, setUser] = useState();
   const netInfo = useNetInfo();
 
   const demo = async () => {
@@ -29,14 +31,14 @@ export default function App() {
   demo();
 
   return (
-    <>
+    <AuthContext.Provider value={{ user, setUser }}>
       {/* // netInfo.isInternetReachable ? ( // <Text>InternetReachable</Text>
       // ) : ( // <Text>InternetNotReachable</Text>
       // ); */}
       <OfflineNotice />
       <NavigationContainer theme={NavigationTheme}>
-        <AppNavigator />
+        {user ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
-    </>
+    </AuthContext.Provider>
   );
 }
