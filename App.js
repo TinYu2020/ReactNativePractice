@@ -1,40 +1,30 @@
 import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
-// import { AsyncStorageStatic } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AppLoading } from "expo";
 
-// Screens
-import AuthNavigator from "./app/navigation/AuthNavigator";
-
-import NavigationTheme from "./app/navigation/NavigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
-import { Text } from "react-native";
-import OfflineNotice from "./app/components/OfflineNotice";
 import AuthContext from "./app/auth/context";
+import AuthNavigator from "./app/navigation/AuthNavigator";
+import authStorage from "./app/auth/storage";
+import OfflineNotice from "./app/components/OfflineNotice";
+import NavigationTheme from "./app/navigation/NavigationTheme";
 
 export default function App() {
   const [user, setUser] = useState();
-  const netInfo = useNetInfo();
+  const [isReady, setIsReady] = useState();
 
-  const demo = async () => {
-    try {
-      await AsyncStorage.setItem("person", JSON.stringify({ id: 1 }));
-      const value = await AsyncStorage.getItem("person");
-      const person = JSON.parse(value);
-      console.log(person, "person");
-    } catch (error) {
-      console.log(error);
-    }
+  const restoreUser = async () => {
+    const user = await authStorage.getUser();
+    if (user) setUser(user);
   };
 
-  demo();
+  if (!isReady)
+    return (
+      <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} />
+    );
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>
-      {/* // netInfo.isInternetReachable ? ( // <Text>InternetReachable</Text>
-      // ) : ( // <Text>InternetNotReachable</Text>
-      // ); */}
       <OfflineNotice />
       <NavigationContainer theme={NavigationTheme}>
         {user ? <AppNavigator /> : <AuthNavigator />}

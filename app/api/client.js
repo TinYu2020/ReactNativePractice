@@ -2,7 +2,10 @@ import { create } from "apisauce";
 import cache from "../utility/cache";
 
 const apiClient = create({
-  baseURL: "http://192.168.0.103:9000/api",
+  // home
+  baseURL: "http://192.168.10.21:9000/api",
+  // blueprint
+  baseURL: "http://192.168.212.224:9000/api",
 });
 
 const get = apiClient.get;

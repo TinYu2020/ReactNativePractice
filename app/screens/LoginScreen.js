@@ -5,6 +5,7 @@ import jwtDecode from "jwt-decode";
 
 import authApi from "../api/auth";
 import AuthContext from "../auth/context";
+import authStorage from "../auth/storage";
 import Screen from "../components/Screen";
 import {
   ErrorMessage,
@@ -28,6 +29,8 @@ function Login(props) {
     setLoginFailed(false);
     const user = jwtDecode(result.data);
     authContext.setUser(user);
+    // store the token sent from backend
+    authStorage.storeToken(result.data);
   };
 
   return (
