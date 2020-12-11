@@ -7,7 +7,7 @@ const apiClient = create({
   // home
   baseURL: "http://192.168.10.21:9000/api",
   // blueprint
-  baseURL: "http://192.168.212.224:9000/api",
+  // baseURL: "http://192.168.212.224:9000/api",
 });
 
 apiClient.addAsyncRequestTransform(async (request) => {
