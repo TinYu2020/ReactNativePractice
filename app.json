@@ -19,6 +19,9 @@
     "ios": {
       "supportsTablet": true
     },
+    "android": {
+      "useNextNotificationsApi": true
+    },
     "description": "Selling the stuff you don't need anymore!"
   }
 }

@@ -19,7 +19,8 @@ export default useNotifications = (notificationListener) => {
       // The "granted" property always return false if use simulator, this only work in actual device
       if (!permission.granted) return;
 
-      const token = await Notifications.getExpoPushTokenAsync();
+      // const token = await Notifications.getExpoPushTokenAsync();
+      const token = await Notifications.getExponentPushTokenAsync();
       expoPushTokensApi.register(token);
     } catch (error) {
       console.log("Error getting a push token", error);
