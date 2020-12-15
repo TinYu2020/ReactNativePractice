@@ -8,9 +8,10 @@ import navigation from "../navigation/rootNavigation";
 export default useNotifications = (notificationListener) => {
   useEffect(() => {
     registerForPushNotifications();
-
     if (notificationListener)
-      Notifications.addNotificationReceivedListener(notificationListener);
+      Notifications.addNotificationReceivedListener((notificationListener) => {
+        navigation.navigate("Account");
+      });
   }, []);
 
   const registerForPushNotifications = async () => {
