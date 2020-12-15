@@ -6,6 +6,12 @@ const send = (message, listingId) =>
     listingId,
   });
 
+const get = (userId) =>
+  client.get("/messages", {
+    userId,
+  });
+
 export default {
   send,
+  get,
 };

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Alert, FlatList, StyleSheet } from "react-native";
 
 import ListItem from "../components/lists/ListItem";
 import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
 import ListItemSeparator from "../components/lists/ListItemSeparator";
 import Screen from "../components/Screen";
+import messagesApi from "../api/messages";
 
 const initialMessages = [
   {
@@ -26,10 +27,22 @@ const initialMessages = [
 function MessagesScreen(props) {
   const [messages, setMessages] = useState(initialMessages);
   const [refreshing, setRefreshing] = useState(false);
+  const { user } = useAuth();
 
   const handleDelete = (message) => {
     const newMessages = messages.filter((m) => m.id !== message.id);
     setMessages(newMessages);
+  };
+
+  useEffect(() => {
+    getMessages();
+  }, []);
+
+  const getMessages = async () => {
+    const result = await messagesApi.get(user.userId);
+    if (!result.ok)
+      return Alert.alert(result, "Error", "Could not get message.");
+    setMessages(result.data);
   };
 
   return (
@@ -39,8 +52,8 @@ function MessagesScreen(props) {
         keyExtractor={(message) => message.id.toString()}
         renderItem={({ item }) => (
           <ListItem
-            title={item.title}
-            subTitle={item.description}
+            title={item.fromUser && item.fromUser.name}
+            subTitle={item.content}
             image={item.image}
             onPress={() => console.log("Message selected", item)}
             renderRightActions={() => (

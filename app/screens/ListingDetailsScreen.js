@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
 import { Image } from "react-native-expo-image-cache";
 
@@ -6,9 +6,26 @@ import colors from "../config/colors";
 import ListItem from "../components/lists/ListItem";
 import Text from "../components/Text";
 import ContactSellerForm from "../components/ContactSellerForm";
+import usersApi from "../api/users";
 
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
+  const [sellerName, setSellerName] = useState("Seller Name");
+
+  useEffect(() => {
+    getUserInfo();
+  });
+
+  const getUserInfo = async () => {
+    try {
+      const result = await usersApi.getUserById(listing.userId);
+      const userInfo = result.data.filter((user) => user.id === listing.userId);
+
+      setSellerName(userInfo[0].name);
+    } catch (error) {
+      console.log(error, "error");
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -27,7 +44,7 @@ function ListingDetailsScreen({ route }) {
         <View style={styles.userContainer}>
           <ListItem
             image={require("../assets/mosh.jpg")}
-            title={listing.title}
+            title={sellerName}
             subTitle={listing.subTitle}
           />
         </View>
