@@ -19,9 +19,9 @@ This project is using Expo as project manager.
 
 # start the server
 
-- Clone the repo
-- Go to the server folder terminal, run `npm install` or `yarn install` to install all dependencies
-- In the config folder, open `development.json` file, change the IP address in `assetsBaseUrl` to your private IP address
+- ✅Clone the repo: `git clone https://github.com/TinYu2020/ReactNativePractice`
+- ✅Go to the server folder terminal, run `npm install` or `yarn install` to install all dependencies
+- Go to the config folder, open `development.json` file, change the IP address in `assetsBaseUrl` to your private IP address
 - Run `node index.js` in terminal to start the server, you will see `Server started on port 9000...`
 
 # start the React Native frontend
