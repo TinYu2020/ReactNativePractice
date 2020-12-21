@@ -1,11 +1,11 @@
-#### Quick summary
+# Quick summary
 
 This is the app that has been built after a React Native beginner course.
 This file contains the steps to set up the environment on Mac OS to run the app on XCode simulator, Android Studio Emulator and real iOS device.
 
 This project is using Expo as project manager.
 
-#### Environment Setup
+# Environment Setup
 
 ## Prerequisite
 
@@ -16,16 +16,16 @@ This project is using Expo as project manager.
 - Install [Watchman](https://facebook.github.io/watchman/docs/install#buildinstall): `brew install watchman `
 - Install Expo CLI: `sudo npm i -g expo-cli`. Verify that the installation was successful by running `expo whoami`. You will see "Not logged in" as you're not login yet. If you want to create an account, you can create an account by running `expo register`. If you have one already run `expo login`, but you don't need an account to get started
 
-#### How to run the App?
+## How to run the App?
 
-# Start the server
+## Start the server
 
 - Clone the repo: `git clone https://github.com/TinYu2020/ReactNativePractice`
 - Go to the `server` folder, in the folder terminal, run `npm install` or `yarn install` to install all dependencies
 - Go to `server` -> `config` -> `development.json` file, change the IP address in `assetsBaseUrl` to your private IP address
 - Run `node index.js` in terminal to start the server, you will see `Server started on port 9000...`
 
-# Start the React Native frontend
+## Start the React Native frontend
 
 - Go to reactNative folder, in the folder terminal, run `npm install` or `yarn install` to install all dependencies
 - Go to `reactNative` -> `app` -> `api` -> `client.js`, change the IP address in the baseURL to your private IP address
@@ -67,4 +67,6 @@ This project is using Expo as project manager.
 - Mac for iOS: press `Control` + `D`, then press `Command` + `D`
 - On iOS device: Shaking your iOS device
 
-The purpose is mainly for sharing and for anyone who is interested in playing with React Native. Feel free to clone the repo and reach Tin for any suggestions and ideas
+## Who to talk to ?
+
+The purpose is mainly for sharing and for anyone who is interested in playing with React Native. Feel free to clone the repo and reach Tin for any suggestions and ideas :)
