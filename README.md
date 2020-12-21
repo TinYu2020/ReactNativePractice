@@ -12,7 +12,7 @@ This project is using Expo as project manager.
 - Install [homebrew](https://brew.sh/): in Mac OS terminal, run the following command:
   `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 - Install [Node.js LTS release](https://nodejs.org/en/): run `brew install node`
-- Install [Git]: run `brew install git`
+- Install [Git](https://git-scm.com/): run `brew install git`
 - Install [Watchman](https://facebook.github.io/watchman/docs/install#buildinstall): `brew install watchman `
 - Install Expo CLI: `sudo npm i -g expo-cli`. Verify that the installation was successful by running `expo whoami`. You will see "Not logged in" as you're not login yet. If you want to create an account, you can create an account by running `expo register`. If you have one already run `expo login`, but you don't need an account to get started
 
