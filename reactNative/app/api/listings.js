@@ -4,6 +4,8 @@ const ENDPOINT = "/listings";
 
 const getListings = () => client.get(ENDPOINT);
 
+const getMyListings = (userId) => client.get(`/listing/${userId}`);
+
 const addListing = (listing, onUploadProgress) => {
   const data = new FormData();
   data.append("title", listing.title);
@@ -31,4 +33,5 @@ const addListing = (listing, onUploadProgress) => {
 export default {
   addListing,
   getListings,
+  getMyListings,
 };
