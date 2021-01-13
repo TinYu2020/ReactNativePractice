@@ -17,10 +17,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tinyu.donewithit",
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "useNextNotificationsApi": true
+      "useNextNotificationsApi": true,
+      "package": "com.tinyu.donewithit",
+      "versionCode": 1
     },
     "description": "Selling the stuff you don't need anymore!"
   }
